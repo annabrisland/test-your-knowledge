@@ -4,6 +4,7 @@ var startEl = document.querySelector("#start-screen");
 var questionEl = document.querySelector("#questions");
 var questionName = document.querySelector("#question-title");
 var questionChoices = document.querySelector("#choices");
+var feedback = document.querySelector("#feedback");
 var end = document.querySelector("#end-screen");
 var questionIndex = 0;
 var score = 0;
@@ -12,33 +13,34 @@ var score = 0;
 function correctAns(event) {
   var element = event.target;
 
-  // Display result (correct or incorrect)
+  // Display result (correct or incorrect) and score
   if (
     element.matches("button") &&
     element.dataset.index == questions[questionIndex].answerIndex
   ) {
     var response = "Correct!";
     score++;
-    console.log("correct");
   } else if (element.matches("button")) {
     var response = "Incorrect!";
-    console.log("incorrect");
     score--;
   }
 
-  var result = document.createElement("p");
-  result.textContent = response;
-  questionEl.appendChild(result);
-
+  // Add and display feedback for 0.5s
+  feedback.textContent = response;
+  feedback.className = "feedback"
+  setTimeout(function() {
+    feedback.className = "hide"
+  }, 500);
+  
+  // Increase question index
   questionIndex++;
 
   // Append time
-  // Append score
   // Get next question unless no more questions
   if(questionIndex === questions.length) {
     return;
   };
-  
+
   getQ();
   console.log(score);
 }
