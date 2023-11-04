@@ -8,6 +8,7 @@ var feedback = document.querySelector("#feedback");
 var end = document.querySelector("#end-screen");
 var questionIndex = 0;
 var score = 0;
+var timeRemaining = 30;
 
 // Function to correct and score
 function correctAns(event) {
@@ -23,6 +24,7 @@ function correctAns(event) {
   } else if (element.matches("button")) {
     var response = "Incorrect!";
     score--;
+    timeRemaining -= 5;
   }
 
   // Add and display feedback for 0.5s
@@ -82,8 +84,6 @@ function displayQ() {
 
 // Declare countdown function
 function countdown() {
-  // Set full time
-  var timeRemaining = 30;
 
   var timeInterval = setInterval(function () {
     timeRemaining--;
