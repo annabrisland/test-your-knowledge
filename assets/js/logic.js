@@ -5,18 +5,18 @@ var questionEl = document.querySelector("#questions");
 var questionName = document.querySelector("#question-title");
 var questionChoices = document.querySelector("#choices");
 var end = document.querySelector("#end-screen");
-var answered = false;
-
+// var answered = false;
+var questionIndex = 0;
 
 // Function to listen for answer and display response
-function getA(i) {
+function getA(questionIndex) {
     // Receive answer
     questionEl.addEventListener("click", function(event) {
         var element = event.target;
-        answered = true;
+        // answered = true;
 
         // Display result (correct or incorrect)
-        if (element.matches("button") && element.dataset.index == questions[i].answerIndex) {
+        if (element.matches("button") && element.dataset.index == questions[questionIndex].answerIndex) {
             var response = "Correct!";
         } else if (element.matches("button")) {
             var response = "Incorrect!";
@@ -25,41 +25,45 @@ function getA(i) {
         var result = document.createElement("p");
         result.textContent = response;
         questionEl.appendChild(result);
+
         // Append time
         // Append score
+        // Get next question
+        getQ()
 
     })
 }
 
 // Function to retrieve and display question
-function getQ(i) {
-    questionName.textContent = questions[i].question;
+function getQ() {
+    questionName.textContent = questions[questionIndex].question;
     questionChoices.innerHTML = "";
 
     // Create each question choice
-    for (var j = 0; j < questions[i].answers.length; j++) {
+    for (var j = 0; j < questions[questionIndex].answers.length; j++) {
         var button = document.createElement("button");
 
-        button.textContent = questions[i].answers[j];
+        button.textContent = questions[questionIndex].answers[j];
         // Allocate each choice an index
         button.dataset.index = j;
         questionChoices.appendChild(button);
     }
+    // Get answers to each question
+    getA(questionIndex);
 
-    getA(i);
+    questionIndex++;
 }
 
 // Declare function to display questions
 function displayQ() {
   // Hide start screen
   startEl.className = "hide";
-  // Display first question
+  // Display questions element
   questionEl.className = "";
-  // loop through questions array and display the question
-  for (var i = 0; i < questions.length; i++) {
-    // get question
-    getQ(i);
-  }
+  
+  // get question
+  getQ();
+  
 }
 
 // Declare countdown function
