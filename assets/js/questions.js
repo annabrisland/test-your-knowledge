@@ -22,7 +22,7 @@ var questions = [
     {
         question: "A useful tool for debugging is ______.",
         answers: ["bug spray", "the terminal", "if/else", "the console"],
-        answerIndex: 2
+        answerIndex: 3
     },
     {
         question: "Which is the correct method for saving to local storage?",

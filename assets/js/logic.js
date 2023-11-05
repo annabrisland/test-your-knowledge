@@ -66,7 +66,7 @@ function correctAns(event) {
     var response = "❌ Incorrect!";
     if (score > 0) {
       score--;
-    }
+    };
     timeRemaining -= 5;
   }
 
@@ -131,7 +131,7 @@ function countdown() {
     timeRemaining--;
     time.textContent = timeRemaining + " Seconds";
 
-    if ((timeRemaining === 0) | (questionIndex === questions.length)) {
+    if ((timeRemaining < 0) | (questionIndex === questions.length)) {
       clearInterval(timeInterval);
       // Hide questions and display end screen
       questionEl.className = "hide";
