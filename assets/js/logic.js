@@ -60,10 +60,10 @@ function correctAns(event) {
     element.matches("button") &&
     element.dataset.index == questions[questionIndex].answerIndex
   ) {
-    var response = "Correct!";
+    var response = "✅ Correct!";
     score++;
   } else if (element.matches("button")) {
-    var response = "Incorrect!";
+    var response = "❌ Incorrect!";
     if (score > 0) {
       score--;
     }

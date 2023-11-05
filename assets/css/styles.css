@@ -1,33 +1,42 @@
 body {
   font-family: Arial;
   font-size: 120%;
+  background-color: #121212;
+  color: #ebebeb;
+  margin: 35px;
 }
 
 a {
-  color: #563d7c;
+  color: #ebebeb;
   text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.195);
   transition: color 0.1s;
 }
 
 a:hover {
-  color: #8570a5;
+  color: rgb(1, 91, 176);
+  padding: 10px 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.763);
 }
 
 button {
   display: inline-block;
-  margin: 5px;
+  margin: 10px;
   cursor: pointer;
   font-size: 100%;
-  background-color: #563d7c;
+  background-color: rgb(41, 126, 207);
   border-radius: 5px;
-  padding: 2px 10px;
+  padding: 10px 20px;
   color: white;
   border: 0;
   transition: background-color 0.1s;
 }
 
 button:hover {
-  background-color: #8570a5;
+  background-color: rgb(1, 91, 176);
 }
 
 .choices button {
@@ -36,6 +45,11 @@ button:hover {
 
 input[type="text"] {
   font-size: 100%;
+  border-radius: 5px;
+  border: none;
+  margin-left: 20px;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.195);
 }
 
 ol {
@@ -47,14 +61,16 @@ ol {
 li {
   padding: 5px;
   list-style: decimal inside none;
+  background-color: rgba(46, 46, 46, 0.512);
+  border-radius: 3px;
 }
 
 li:nth-child(odd) {
-  background-color: #f3edfc;
+  background-color: rgba(255, 255, 255, 0.195);
 }
 
 .wrapper {
-  margin: 100px auto 0 auto;
+  margin: 60px auto 0 auto;
   max-width: 600px;
 }
 
@@ -66,23 +82,29 @@ li:nth-child(odd) {
   text-align: center;
 }
 
-.scores {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
 .feedback {
-  font-style: italic;
-  font-size: 120%;
+  width: 22%;
+  text-align: center;
+  font-size: 100%;
   margin-top: 20px;
-  padding-top: 10px;
-  color: gray;
-  border-top: 2px solid #ccc;
+  margin-left: 10px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  background-color: rgba(46, 46, 46, 0.512);
 }
 
 .timer {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  display: inline-block;
+  padding: 10px 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: rgba(46, 46, 46, 0.512);
+}
+
+#highscores-table {
+  color: #ffffff;
+}
+
+#leaderboard a {
+  background-color: transparent;
 }
